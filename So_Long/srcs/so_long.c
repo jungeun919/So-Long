@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 16:51:05 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/10/07 15:16:03 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/10/12 16:45:36 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,17 @@ int	main(int argc, char *argv[])
 	set_image(&game);
 	game.window = mlx_new_window(game.mlx, \
 		game.map.col * PX , game.map.row * PX, "so_long");
+	mlx_hook(game.window, ON_CLICK, 0, press_key, &game);
+	mlx_hook(game.window, ON_DESTROY, 0, click_destroy, &game);
 	print_map(&game);
 	mlx_loop(game.mlx);
 	return (0);
+}
+
+int	click_destroy(t_game *game)
+{
+	mlx_destroy_window(game->mlx, game->window);
+	exit(0);
 }
 
 void	print_error(char *str)

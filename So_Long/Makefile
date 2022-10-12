@@ -6,7 +6,7 @@
 #    By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 15:45:01 by jungchoi          #+#    #+#              #
-#    Updated: 2022/10/12 16:40:05 by jungchoi         ###   ########.fr        #
+#    Updated: 2022/10/12 16:45:13 by jungchoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ SRCS = $(addprefix $(SRCS_DIR)/, \
 	so_long.c \
 	parse_map.c \
 	check_map.c \
-	print_map.c)
+	print_map.c \
+	press_key.c)
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
 

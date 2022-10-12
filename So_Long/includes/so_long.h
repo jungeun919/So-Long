@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 15:44:46 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/10/12 16:39:37 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/10/12 17:32:29 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@
 # define KEY_S 1
 # define KEY_D 2
 # define KEY_ESC 53
+
+# define ON_CLICK 2
+# define ON_DESTROY 17
 
 # define PX 64
 # define BUFFER_SIZE 10
@@ -52,7 +55,6 @@ typedef struct s_position
 {
 	int	x;
 	int	y;
-	int	step;
 }	t_position;
 
 typedef struct s_game
@@ -62,6 +64,7 @@ typedef struct s_game
 	t_img		img;
 	t_map		map;
 	t_position	position;
+	int			step;
 }	t_game;
 
 int		click_destroy(t_game *game);
@@ -78,5 +81,9 @@ void	check_component_count(t_game *game);
 void	set_image(t_game *game);
 void	print_map(t_game *game);
 void	print_component(t_game *game, int row, int col);
+
+int		press_key(int keycode, t_game *game);
+void	check_movable(t_game *game, t_position *next);
+void	print_step_and_update_map(t_game *game, t_position *next);
 
 #endif
