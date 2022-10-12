@@ -6,7 +6,7 @@
 #    By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 15:45:01 by jungchoi          #+#    #+#              #
-#    Updated: 2022/10/07 14:36:06 by jungchoi         ###   ########.fr        #
+#    Updated: 2022/10/12 16:40:05 by jungchoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ LIBFT = libft.a
 SRCS = $(addprefix $(SRCS_DIR)/, \
 	so_long.c \
 	parse_map.c \
+	check_map.c \
 	print_map.c)
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))

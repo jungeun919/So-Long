@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 15:44:46 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/10/07 15:08:37 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/10/12 16:39:37 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,16 @@ typedef struct s_game
 	t_position	position;
 }	t_game;
 
+int		click_destroy(t_game *game);
 void	print_error(char *str);
 
 void	parse_map(t_game *game, char *filename);
+
 void	check_map(t_game *game);
 void	check_rectangular_and_size(t_map *map);
 void	check_wall(t_map *map);
-void	check_component(t_map *map);
+void	check_component(t_game *game);
+void	check_component_count(t_game *game);
 
 void	set_image(t_game *game);
 void	print_map(t_game *game);
