@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 15:44:46 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/10/12 17:32:29 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/10/13 17:52:17 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 
 # define PX 64
 # define BUFFER_SIZE 10
+# define OPEN_MAX 256
 
 typedef struct s_img
 {
@@ -70,7 +71,8 @@ typedef struct s_game
 int		click_destroy(t_game *game);
 void	print_error(char *str);
 
-void	parse_map(t_game *game, char *filename);
+int		open_file(char *filename);
+void	parse_map(t_game *game, int fd);
 
 void	check_map(t_game *game);
 void	check_rectangular_and_size(t_map *map);
