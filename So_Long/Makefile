@@ -6,14 +6,14 @@
 #    By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 15:45:01 by jungchoi          #+#    #+#              #
-#    Updated: 2022/10/13 17:52:35 by jungchoi         ###   ########.fr        #
+#    Updated: 2022/10/14 13:23:34 by jungchoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g3
 MLXFLAGS = -L./mlx -lmlx -framework OpenGL -framework AppKit
 
 INCLUDES_DIR = includes
@@ -32,7 +32,8 @@ SRCS = $(addprefix $(SRCS_DIR)/, \
 	parse_map.c \
 	check_map.c \
 	print_map.c \
-	press_key.c)
+	press_key.c \
+	get_next_line.c)
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
 
