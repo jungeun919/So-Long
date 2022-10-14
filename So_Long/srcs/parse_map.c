@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 15:51:14 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/10/14 13:13:41 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/10/14 13:36:26 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	open_file(char *filename)
 
 void	parse_map(t_game *game, int fd)
 {
-	size_t	len;
 	char	*line;
 	char	*str;
 	char	*temp;
@@ -41,8 +40,9 @@ void	parse_map(t_game *game, int fd)
 		free(line);
 	}
 	game->map.map = ft_split(str, '\n');
-	len = ft_strlen(str);
-	if (ft_strnstr(str, "\n\n", len))
+	if (!game->map.map[0])
+		print_error("blank map.\n", &(game->map));
+	if (ft_strnstr(str, "\n\n", ft_strlen(str)))
 	{
 		close(fd);
 		print_error("empty line in map.\n", &(game->map));
