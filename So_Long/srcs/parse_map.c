@@ -12,13 +12,21 @@
 
 #include "../includes/so_long.h"
 
-int	open_file(char *filename)
+int	open_file_and_check_extension(char *filename)
 {
-	int	fd;
+	int		fd;
+	char	*extension;
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		print_error("failed to open file.\n", NULL);
+	extension = ft_strrchr(filename, '.');
+	if (!extension)
+		print_error("invalid filename.\n");
+	if (ft_strcmp(extension, ".ber", 4))
+		print_error("invalid file extension.\n");
+	if (*(extension + 4))
+		print_error("invalid file extension.\n");
 	return (fd);
 }
 

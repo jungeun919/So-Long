@@ -72,7 +72,7 @@ int		click_destroy(t_game *game);
 void	print_error(char *str, t_map *map);
 void	free_map(t_map *map);
 
-int		open_file(char *filename);
+int		open_file_and_check_extension(char *filename);
 void	parse_map(t_game *game, int fd);
 
 void	check_map(t_game *game);
