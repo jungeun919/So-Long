@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 15:13:39 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/10/12 17:32:57 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/10/18 19:10:12 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ void	print_step_and_update_map(t_game *game, t_position *next)
 {
 	game->step++;
 	printf("steps : %d\n", game->step);
-	printf("[prev] y, x : %d, %d\n", game->position.y, game->position.x);
-	printf("[next] y, x : %d, %d\n\n", next->y, next->x);
 	game->map.map[game->position.y][game->position.x] = '0';
 	game->map.map[next->y][next->x] = 'P';
 	game->position.x = next->x;
