@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 15:44:46 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/10/14 13:13:11 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/10/18 16:34:23 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,14 @@ typedef struct s_game
 }	t_game;
 
 int		click_destroy(t_game *game);
-void	print_error(char *str, t_map *map);
+void	print_error(char *str);
 void	free_map(t_map *map);
+void	print_error_free(char *str, t_map *map);
 
-int		open_file_and_check_extension(char *filename);
-void	parse_map(t_game *game, int fd);
+void	open_file_and_check_extension(char *filename);
+int		get_map_row(char *filename);
+void	parse_map(t_game *game, char *filename, int row);
+void	set_row_and_col(int row, t_game *game);
 
 void	check_map(t_game *game);
 void	check_rectangular_and_size(t_map *map);
@@ -89,7 +92,6 @@ int		press_key(int keycode, t_game *game);
 void	check_movable(t_game *game, t_position *next);
 void	print_step_and_update_map(t_game *game, t_position *next);
 
-// gnl
 void	free_ptr(char **ptr);
 char	*ret_line(char **backup);
 char	*cut_backup(char **backup);
