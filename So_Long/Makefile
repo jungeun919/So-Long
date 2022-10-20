@@ -6,14 +6,14 @@
 #    By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 15:45:01 by jungchoi          #+#    #+#              #
-#    Updated: 2022/10/14 13:23:34 by jungchoi         ###   ########.fr        #
+#    Updated: 2022/10/20 19:20:22 by jungchoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror
 MLXFLAGS = -L./mlx -lmlx -framework OpenGL -framework AppKit
 
 INCLUDES_DIR = includes
@@ -39,14 +39,10 @@ OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
 
 all : $(NAME)
 
-$(NAME) : $(LIBFT) $(OBJS) $(MLX)
-	$(CC) $(CFLAGS) $(MLXFLAGS) $(OBJS) -I $(INCLUDES_DIR) -L $(LIBFT_DIR) -lft -o $@
-
-$(LIBFT) :
+$(NAME) : $(OBJS)
 	make -C $(LIBFT_DIR) all
-
-$(MLX) :
 	make -C $(MLX_DIR) all
+	$(CC) $(CFLAGS) $(MLXFLAGS) $(OBJS) -I $(INCLUDES_DIR) -L $(LIBFT_DIR) -lft -o $@
 
 $(OBJS_DIR)/%.o : $(SRCS_DIR)/%.c
 	@mkdir $(OBJS_DIR) 2> /dev/null || true

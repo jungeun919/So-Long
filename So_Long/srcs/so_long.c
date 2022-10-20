@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 16:51:05 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/10/18 19:01:46 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/10/20 17:02:24 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	main(int argc, char *argv[])
 	if (argc != 2)
 		print_error("map file does not exist.\n");
 	game.mlx = mlx_init();
+	if (!game.mlx)
+		print_error("mlx must init.\n");
 	open_file_and_check_extension(argv[1]);
 	row = get_map_row(argv[1]);
 	parse_map(&game, argv[1], row);
@@ -31,7 +33,6 @@ int	main(int argc, char *argv[])
 	mlx_hook(game.window, ON_DESTROY, 0, click_destroy, &game);
 	print_map(&game);
 	mlx_loop(game.mlx);
-	system("leaks so_long");
 	return (0);
 }
 
